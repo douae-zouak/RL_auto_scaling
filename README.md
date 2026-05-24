@@ -3,9 +3,9 @@
 > **Dueling Double DQN + Prioritized Experience Replay** for intelligent Kubernetes-style cluster resource management.
 
 
-
+```
 ## Architecture
-
+```
 
 rl_autoscaling/
 ├── environment/
