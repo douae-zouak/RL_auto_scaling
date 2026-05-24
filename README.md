@@ -1,12 +1,12 @@
-# 🤖 Deep RL Cluster Autoscaling
+# Deep RL Cluster Autoscaling
 
 > **Dueling Double DQN + Prioritized Experience Replay** for intelligent Kubernetes-style cluster resource management.
 
----
 
-## 🏗️ Architecture
 
-```
+## Architecture
+
+
 rl_autoscaling/
 ├── environment/
 │   ├── cluster_env.py          # ClusterAutoscalingEnv (Gymnasium)
@@ -34,20 +34,20 @@ visualization/
 
 ---
 
-## 🎯 Problem
+## Problem
 
 Traditional cluster autoscalers (HPA, VPA) react **reactively** to instantaneous metrics using hand-tuned thresholds. This system trains a **RL agent** to learn a proactive scaling policy that optimises:
 
 | Objective | Signal |
 |-----------|--------|
-| 💰 Infrastructure cost | Proportional to active node count |
-| ⚡ Performance (latency) | Average job completion time |
-| 📈 Throughput | Jobs completed per timestep |
-| 📋 SLA compliance | Latency + queue-length thresholds |
+| Infrastructure cost | Proportional to active node count |
+| Performance (latency) | Average job completion time |
+| Throughput | Jobs completed per timestep |
+| SLA compliance | Latency + queue-length thresholds |
 
 ---
 
-## 📊 State Space
+## State Space
 
 Each observation = **sliding window** of the last **T = 8** cluster states.
 
@@ -66,7 +66,7 @@ Each observation = **sliding window** of the last **T = 8** cluster states.
 
 ---
 
-## ⚙️ Action Space
+## Action Space
 
 | ID | Action | Effect |
 |----|--------|--------|
@@ -81,7 +81,7 @@ Each observation = **sliding window** of the last **T = 8** cluster states.
 
 ---
 
-## 🧠 Agent: Dueling Double DQN + PER
+## Agent: Dueling Double DQN + PER
 
 ```
 Input (64,)
@@ -114,7 +114,7 @@ FC(128) → ReLU      FC(128) → ReLU
 
 ---
 
-## 📈 Reward Function
+## Reward Function
 
 ```
 R = −cost − λ·SLA_violation + throughput_bonus + efficiency_bonus − stability_penalty
@@ -130,7 +130,7 @@ R = −cost − λ·SLA_violation + throughput_bonus + efficiency_bonus − stab
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Install dependencies (includes pygame for visualization)
@@ -152,7 +152,7 @@ python main.py --mode train --total_steps 50000 --warmup_steps 2000
 python main.py --mode eval --checkpoint checkpoints/best.pt
 ```
 
-### 🎮 Controls for Interactive Visualization (`run_viz.py`)
+### Controls for Interactive Visualization (`run_viz.py`)
 When running the interactive simulation window, the following keyboard controls are active:
 * **`1` - `5`** : Switch load scenarios in real time:
   * `1` : **Normal** (Standard harmonic Poisson workload)
@@ -168,7 +168,7 @@ When running the interactive simulation window, the following keyboard controls 
 
 ---
 
-## 📁 Outputs
+## Outputs
 
 | Path | Content |
 |------|---------|
@@ -181,7 +181,7 @@ When running the interactive simulation window, the following keyboard controls 
 
 ---
 
-## 🔬 Cluster Simulation
+## Cluster Simulation
 
 The backend simulates a realistic distributed compute infrastructure:
 
@@ -193,7 +193,7 @@ The backend simulates a realistic distributed compute infrastructure:
 
 ---
 
-## 🔧 Extending the System
+## Extending the System
 
 ### Custom workload
 Override `ClusterSimulator._generate_arrivals()` with your own arrival process.
