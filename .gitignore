@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Environments & virtualenvs
+.env
+.venv
+env/
+venv/
+ENV/
+
+# PyTorch checkpoints & model weights
+checkpoints/
+*.pt
+*.pth
+
+# Application logs, metrics & outputs
+logs/
+*.log
+*.csv
+*.json
+
+# IDE / Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
