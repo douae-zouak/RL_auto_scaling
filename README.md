@@ -3,10 +3,10 @@
 > **Dueling Double DQN + Prioritized Experience Replay** for intelligent Kubernetes-style cluster resource management.
 
 
-```
-## Architecture
-```
 
+## Architecture
+
+```
 rl_autoscaling/
 ├── environment/
 │   ├── cluster_env.py          # ClusterAutoscalingEnv (Gymnasium)
